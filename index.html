@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat App</title>
+  <style>
+    /* Add some styling for the chat window and input field */
+    .chat-window {
+      width: 600px;
+      height: 400px;
+      border: 1px solid #ccc;
+      overflow: auto;
+      margin: 0 auto;
+      padding: 10px;
+    }
+    .chat-input {
+      width: 90%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .chat-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Create the chat window and input field -->
+  <div class="chat-window">
+    <div id="chat-messages"></div>
+    <input type="text" class="chat-input" id="chat-input">
+    <button class="chat-button" id="chat-button">Send</button>
+  </div>
+
+  <!-- Add some JavaScript to send and receive messages -->
+  <script>
+    // Get the chat button and input field
+    const chatButton = document.getElementById('chat-button');
+    const chatInput = document.getElementById('chat-input');
+
+    // Add an event listener for the chat button
+    chatButton.addEventListener('click', () => {
+      // Get the message from the input field
+      const message = chatInput.value;
+
+      // Clear the input field
+      chatInput.value = '';
+
+      // Send the message
+      sendMessage(message);
+    });
+
+    // Send a message to the chat window
+    function sendMessage(message) {
+      // Create a new message element
+      const messageElement = document.createElement('div');
+      messageElement.innerText = message;
+
+      // Add the message to the chat window
+      document.getElementById('chat-messages').appendChild(messageElement);
+    }
+  </script>
+</body>
+</html>
